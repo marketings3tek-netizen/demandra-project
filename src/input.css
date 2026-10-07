@@ -1,0 +1,23 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+@layer components{
+.btn{@apply inline-flex items-center justify-center rounded-xl bg-brand px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand/30 transition hover:-translate-y-0.5 hover:bg-brand-dark active:translate-y-0}
+.btn-o{@apply inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 font-semibold text-ink transition hover:-translate-y-0.5 hover:bg-slate-50}
+.card{@apply rounded-2xl border border-line bg-white p-6 shadow-[0_1px_2px_rgba(10,26,68,.05),0_12px_32px_rgba(10,26,68,.07)]}
+.reveal{@apply translate-y-6 opacity-0 transition duration-700}.reveal.in{@apply translate-y-0 opacity-100}
+.inp{@apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/15}
+.doc h2{@apply mb-2 mt-9 font-display text-2xl font-semibold text-ink}.doc p{@apply mb-4 text-slate-600}.doc ul{@apply mb-4 list-disc space-y-1 pl-6 text-slate-600}
+.nl{@apply rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-brand-soft hover:text-brand}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+@keyframes shift{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+@keyframes blob{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.15)}66%{transform:translate(-30px,20px) scale(.9)}}
+@keyframes marq{to{transform:translateX(-50%)}}@keyframes dash{to{stroke-dashoffset:-28}}@keyframes draw{to{stroke-dashoffset:0}}
+.grad-text{background-image:linear-gradient(90deg,#6d3cf0,#ec4899,#fb923c,#6d3cf0);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 6s ease infinite}
+.btn{background-image:linear-gradient(90deg,#6d3cf0,#d946ef,#fb923c);background-size:200% 100%;transition:background-position .5s,transform .2s}.btn:hover{background-position:100% 0}
+.blob{position:absolute;border-radius:9999px;filter:blur(60px);opacity:.55;animation:blob 14s ease-in-out infinite}
+.lines{background-image:linear-gradient(rgba(109,60,240,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(109,60,240,.1) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.lines-w{background-image:linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px);background-size:44px 44px}
+.marq{display:flex;width:max-content;animation:marq 32s linear infinite}.marq:hover{animation-play-state:paused}
+.animate-dash{stroke-dasharray:6 8;animation:dash 1.5s linear infinite}.squig path{stroke-dasharray:300;stroke-dashoffset:300;animation:draw 1.2s .6s forwards}
+@media (prefers-reduced-motion:reduce){.squig path{stroke-dashoffset:0}}
